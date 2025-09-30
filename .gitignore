@@ -1,3 +1,7 @@
+node_modules/
+server/node_modules/
+server/.env
+
 # Python
 venv/
 __pycache__/
