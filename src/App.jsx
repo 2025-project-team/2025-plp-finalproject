@@ -6,6 +6,7 @@ import CommunityHealthMap from "./components/CommunityHealthMap";
 import EmergencyContacts from "./components/EmergencyContacts";
 import HealthResources from "./components/HealthResources";
 import SocketService from "./services/socket";
+import PaymentButton from './components/PaymentButton';
 
 function App() {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -16,12 +17,8 @@ function App() {
     const socket = SocketService.connect();
     
     SocketService.on("new-emergency", (emergencyData) => {
-      console.log(" New emergency received:", emergencyData);
       setNewEmergencyAlert(emergencyData);
-      
-      setTimeout(() => {
-        setNewEmergencyAlert(null);
-      }, 10000);
+      setTimeout(() => setNewEmergencyAlert(null), 10000);
     });
 
     checkBackendStatus();
@@ -108,7 +105,6 @@ function App() {
                 onClick={() => setNewEmergencyAlert(null)}
                 className="text-white hover:text-gray-200 text-xl"
               >
-                
               </button>
             </div>
           </div>
@@ -155,6 +151,10 @@ function App() {
       </nav>
 
       <main className="container mx-auto px-4 py-6">
+        {/* Add the Upgrade button here */}
+        <div className="mb-6 flex justify-end">
+          <PaymentButton />
+        </div>
         {renderContent()}
       </main>
 

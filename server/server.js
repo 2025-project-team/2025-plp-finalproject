@@ -14,6 +14,8 @@ import userRoutes from './routes/users.js';
 import aiRoutes from './routes/ai.js';
 
 dotenv.config();
+console.log('Loaded Stripe key:', process.env.STRIPE_SECRET_KEY ? 'Yes' : 'No');
+import paymentRoutes from './routes/payment.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -71,9 +73,10 @@ app.set('io', io);
 
 // Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/emergencies', emergencyRoutes);
+app.use('/api/emergency', emergencyRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/ai', aiRoutes);
+app.use('/api/payment', paymentRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
