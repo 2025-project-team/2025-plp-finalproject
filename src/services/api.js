@@ -32,22 +32,24 @@ export const apiCall = async (endpoint, options = {}) => {
 
 export const emergenciesAPI = {
   reportEmergency: (emergencyData) =>
-    apiCall("/emergencies", {
+    apiCall("/emergency", {
+      // Changed from /emergencies
       method: "POST",
       body: emergencyData,
     }),
 
   getEmergencies: (params = {}) => {
     const queryParams = new URLSearchParams(params).toString();
-    return apiCall(`/emergencies?${queryParams}`);
+    return apiCall(`/emergency?${queryParams}`); // Changed from /emergencies
   },
 
-  getActiveEmergencies: () => apiCall("/emergencies/active"),
+  getActiveEmergencies: () => apiCall("/emergency/active"), // Changed from /emergencies/active
 
-  getEmergency: (id) => apiCall(`/emergencies/${id}`),
+  getEmergency: (id) => apiCall(`/emergency/${id}`), // Changed from /emergencies/${id}
 
   updateEmergencyStatus: (id, status) =>
-    apiCall(`/emergencies/${id}/status`, {
+    apiCall(`/emergency/${id}/status`, {
+      // Changed from /emergencies/${id}/status
       method: "PUT",
       body: { status },
     }),
