@@ -8,10 +8,10 @@ class SocketService {
 
   connect() {
     try {
-      this.socket = io("http://localhost:5000", {
-        transports: ["websocket", "polling"]
+      this.socket = io("https://community-health-emergency.onrender.com/", {
+        transports: ["websocket", "polling"],
       });
-      
+
       this.socket.on("connect", () => {
         console.log(" Connected to server");
         this.isConnected = true;
