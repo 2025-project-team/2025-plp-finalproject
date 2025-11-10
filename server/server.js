@@ -105,5 +105,7 @@ const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log(`📱 Frontend: ${process.env.FRONTEND_URL}`);
-  console.log(`🔗 Health check: ${process.env.FRONTEND_URL}/api/health`);
+  console.log(
+    `🔗 Health check: https://community-health-emergency.onrender.com/api/health`,
+  );
 });
