@@ -1,4 +1,4 @@
-﻿const API_BASE_URL = "https://community-health-emergency.onrender.com/api";
+const API_BASE_URL = "https://community-health-emergency.onrender.com/api";
 
 export const apiCall = async (endpoint, options = {}) => {
   const url = `${API_BASE_URL}${endpoint}`;
